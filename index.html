@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="uz" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Premium Fonts -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- Tailwind CSS Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            }
+          }
+        }
+      }
+    </script>
+    
+    <title>DonoRuh — Professional Kognitiv Psixologiya Platformasi</title>
+  </head>
+  <body class="bg-[#080c14] text-slate-100 min-h-screen flex flex-col selection:bg-emerald-500/30 selection:text-emerald-200">
+
+    <!-- 1. HEADER NAVIGATION -->
+    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-900/80" id="header-nav">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+        
+        <!-- Logo -->
+        <a href="#" class="flex items-center space-x-2.5 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white shadow-[0_0_20px_rgba(16,185,129,0.25)] transition-all group-hover:scale-105">
+            <i data-lucide="brain" class="w-5 h-5"></i>
+          </div>
+          <span class="text-xl font-display font-bold text-slate-100 tracking-tight" id="nav-logo-text">
+            DonoRuh
+          </span>
+          <span class="text-emerald-500 font-black text-xl">.</span>
+        </a>
+
+        <!-- Desktop Links -->
+        <nav class="hidden lg:flex items-center space-x-8">
+          <a href="#about-section" class="text-sm font-medium text-slate-400 hover:text-slate-100 transition-all duration-200" id="nav-about-link">Shifokor haqida</a>
+          <a href="#services-section" class="text-sm font-medium text-slate-400 hover:text-slate-100 transition-all duration-200" id="nav-services-link">Xizmatlar</a>
+          <a href="#test-section" class="text-sm font-medium text-slate-400 hover:text-slate-100 transition-all duration-200" id="nav-test-link">Sog'liq testi</a>
+          <a href="#relaxation-section" class="text-sm font-medium text-slate-400 hover:text-slate-100 transition-all duration-200" id="nav-sounds-link">Keltirish Lounge</a>
+          <a href="#booking-section" class="text-sm font-medium text-slate-400 hover:text-slate-100 transition-all duration-200" id="nav-contact-link">Qabulga yozilish</a>
+        </nav>
+
+        <!-- Right: Language and Booking action -->
+        <div class="hidden lg:flex items-center space-x-4">
+          <!-- Desktop Language Selector -->
+          <div class="flex items-center space-x-1 bg-slate-950/80 p-1 rounded-xl border border-slate-900">
+            <button id="lang-uz" class="px-2.5 py-1 rounded-lg text-xs font-medium cursor-pointer transition-all">UZ</button>
+            <button id="lang-ru" class="px-2.5 py-1 rounded-lg text-xs font-medium cursor-pointer transition-all">RU</button>
+            <button id="lang-en" class="px-2.5 py-1 rounded-lg text-xs font-medium cursor-pointer transition-all">EN</button>
+          </div>
+
+          <a href="#booking-section" id="nav-book-btn" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs rounded-xl shadow-[0_4px_15px_rgba(16,185,129,0.2)] hover:shadow-[0_4px_20px_rgba(16,185,129,0.35)] transition-all transform hover:-translate-y-0.5">
+            Yozilish
+          </a>
+        </div>
+
+        <!-- Mobile triggers -->
+        <div class="flex items-center space-x-3 lg:hidden">
+          <button id="mobile-menu-toggle" class="p-2 text-slate-400 hover:text-slate-200 bg-slate-900 border border-slate-800 rounded-lg cursor-pointer">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-drawer" class="hidden lg:hidden bg-slate-950 border-b border-slate-900 px-4 py-5 space-y-4">
+        <a href="#about-section" class="block text-sm font-medium text-slate-400 hover:text-slate-100 border-b border-slate-900/50 pb-2">Shifokor haqida</a>
+        <a href="#services-section" class="block text-sm font-medium text-slate-400 hover:text-slate-100 border-b border-slate-900/50 pb-2">Xizmatlar</a>
+        <a href="#test-section" class="block text-sm font-medium text-slate-400 hover:text-slate-100 border-b border-slate-900/50 pb-2">Sog'liq testi</a>
+        <a href="#relaxation-section" class="block text-sm font-medium text-slate-400 hover:text-slate-100 border-b border-slate-900/50 pb-2">Keltirish Lounge</a>
+        <a href="#booking-section" class="block text-sm font-medium text-slate-400 hover:text-slate-100 border-b border-slate-900/50 pb-2">Qabulga yozilish</a>
+        
+        <!-- Mobile Language Selector -->
+        <div class="flex items-center space-x-1.5 pt-2">
+          <button id="mobile-lang-uz" class="px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer transition-all">UZ</button>
+          <button id="mobile-lang-ru" class="px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer transition-all">RU</button>
+          <button id="mobile-lang-en" class="px-3 py-1.5 rounded-lg text-xs font-medium cursor-pointer transition-all">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. HERO PRESENTATION BLOCK -->
+    <section class="relative pt-12 pb-20 md:py-28 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900" id="hero-section">
+      <!-- Glow blurs -->
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[100px] -z-10"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-[100px] -z-10"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-4xl mx-auto space-y-8">
+          
+          <!-- Glowing badge -->
+          <div class="inline-flex items-center space-x-2 px-4 py-2 bg-emerald-950/20 border border-emerald-500/30 rounded-full fade-in">
+            <i data-lucide="award" class="w-4 h-4 text-emerald-400 animate-pulse"></i>
+            <span class="text-xs font-mono font-medium tracking-wide text-emerald-400 uppercase" id="hero-badge-text">
+              Toshkentdagi yetakchi kognitiv psixolog
+            </span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold tracking-tight text-slate-100 leading-tight fade-in" id="hero-title-text">
+            Ruhoniy xotirjamlik va ichki barqarorlikka qaytish
+          </h1>
+
+          <p class="text-base sm:text-lg md:text-xl text-slate-400 font-normal leading-relaxed max-w-3xl mx-auto fade-in" id="hero-sub-text">
+            Professional va maxfiy psixologik yordam. Biz sizga xavotir, tushkunlik, obsessiv fikrlar hamda stressdan samarali xalos bo'lishingizda ko'maklashamiz.
+          </p>
+
+          <!-- Interactive Action triggers -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 fade-in">
+            <a href="#booking-section" id="hero-book-cta" class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-semibold rounded-xl text-sm md:text-base shadow-[0_4px_25px_rgba(16,185,129,0.3)] hover:shadow-[0_4px_30px_rgba(16,185,129,0.5)] transition-all duration-300 transform hover:-translate-y-0.5 flex items-center justify-center space-x-2.5">
+              <span>Qabulga yozilish</span>
+              <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </a>
+
+            <a href="#ai-chat-section" id="hero-ai-cta" class="w-full sm:w-auto px-8 py-4 bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-slate-100 font-medium rounded-xl text-sm md:text-base border border-slate-800 hover:border-slate-700 transition-all duration-300 flex items-center justify-center space-x-2.5">
+              <i data-lucide="sparkles" class="w-5 h-5 text-emerald-400"></i>
+              <span>AI Psixolog bilan suhbat</span>
+            </a>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="pt-12 grid grid-cols-3 gap-4 border-t border-slate-900 max-w-3xl mx-auto" id="hero-stats-row">
+            <div class="space-y-1">
+              <p class="text-2xl sm:text-3xl font-display font-bold text-slate-100 font-mono">1,200+</p>
+              <p class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider" id="hero-stats-happy">Baxtli mijozlar</p>
+            </div>
+            <div class="space-y-1 border-x border-slate-900">
+              <p class="text-2xl sm:text-3xl font-display font-bold text-emerald-400 font-mono">4,500+</p>
+              <p class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider" id="hero-stats-sessions">Muvaffaqiyatli sessiyalar</p>
+            </div>
+            <div class="space-y-1">
+              <p class="text-2xl sm:text-3xl font-display font-bold text-slate-100 font-mono flex items-center justify-center">
+                <span>4.9</span>
+                <i data-lucide="star" class="w-4 h-4 text-amber-500 fill-amber-500 ml-1 shrink-0"></i>
+              </p>
+              <p class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider" id="hero-stats-rating">Mijozlar reytingi</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. DOCTOR BIOGRAPHY -->
+    <section class="py-20 bg-slate-950 border-t border-slate-900" id="about-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Left: Portrait mock -->
+          <div class="lg:col-span-5 flex justify-center relative">
+            <div class="absolute -inset-1 bg-gradient-to-tr from-emerald-500 to-teal-500 rounded-2xl blur-lg opacity-25 -z-10"></div>
+            <div class="absolute -bottom-4 -right-4 w-44 h-44 bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
+
+            <div class="w-full max-w-[360px] aspect-square rounded-2xl border-2 border-slate-800/80 overflow-hidden bg-slate-900 shadow-2xl relative group">
+              <img
+                src="/src/assets/images/dr_abdurahmon_portrait_1782377341659.jpg"
+                alt="Dr. Abdurahmon Shermatov"
+                referrerPolicy="no-referrer"
+                class="w-full h-full object-cover grayscale-[10%] group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-[1.03]"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-60"></div>
+              
+              <div class="absolute bottom-4 left-4 right-4 bg-slate-900/95 backdrop-blur-md p-4 rounded-xl border border-slate-800 flex items-center justify-between">
+                <div>
+                  <p class="text-xs text-emerald-400 font-mono font-medium tracking-widest">DR. SHERMATOV</p>
+                  <p class="text-[11px] text-slate-400">Clinical Psychotherapist</p>
+                </div>
+                <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500 shrink-0"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Details, Approach, and bullet points -->
+          <div class="lg:col-span-7 space-y-7 text-left">
+            <div class="space-y-2">
+              <span class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-semibold" id="about-badge">Shifokor haqida</span>
+              <h2 class="text-3xl md:text-4xl font-display font-extrabold text-slate-100" id="about-title">Dr. Abdurahmon Shermatov</h2>
+              <p class="text-sm font-medium text-slate-400" id="about-subtitle">Klinik psixolog, kognitiv-xulq-atvor terapevti (CBT)</p>
+            </div>
+
+            <p class="text-slate-300 text-sm md:text-base leading-relaxed" id="about-bio">
+              Men 8 yildan ortiq vaqt davomida odamlarga hissiy inqirozlar, depressiya, vahima hujumlari (panik ataka) va oilaviy nizolarni yengib o'tishda yordam berib kelmoqdaman. Mening terapiya uslubim fanga asoslangan kognitiv-xulq-atvor terapiyasi, geştalt va insonga yo'naltirilgan yondashuvlarning sintezidan iborat.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pt-3">
+              <!-- Card Education -->
+              <div class="bg-slate-900/40 border border-slate-900 p-4 rounded-xl space-y-2 flex items-start space-x-3.5">
+                <div class="p-2 bg-emerald-500/10 rounded-lg text-emerald-400 shrink-0 mt-0.5">
+                  <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-semibold text-slate-200" id="about-edu-title">Ma'lumoti va Malaka</h4>
+                  <p class="text-xs text-slate-400 leading-relaxed" id="about-edu-text">Toshkent Tibbiyot Akademiyasi (Klinik Psixologiya), Yevropa Kognitiv-Xulq-atvor Terapiyasi Assotsiatsiyasi (EABCT) sertifikatlangan a'zosi.</p>
+                </div>
+              </div>
+
+              <!-- Card Philosophy -->
+              <div class="bg-slate-900/40 border border-slate-900 p-4 rounded-xl space-y-2 flex items-start space-x-3.5">
+                <div class="p-2 bg-indigo-500/10 rounded-lg text-indigo-400 shrink-0 mt-0.5">
+                  <i data-lucide="compass" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="text-sm font-semibold text-slate-200" id="about-approach-title">Terapevtik Yondashuv</h4>
+                  <p class="text-xs text-slate-400 leading-relaxed" id="about-approach-text">Har bir insonga chuqur hurmat va maxfiylik. Biz muammoning ildizini topib, uni kognitiv qayta dasturlash orqali hal qilamiz.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Specialties bullet list -->
+            <div class="space-y-3 pt-2">
+              <h4 class="text-sm font-semibold font-mono uppercase tracking-widest text-slate-400 flex items-center space-x-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
+                <span id="about-specialties-title">Asosiy ixtisoslashuvlar:</span>
+              </h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="about-specialties-list">
+                <!-- Dynamically loaded -->
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SERVICES SECTION -->
+    <section class="py-20 bg-slate-900/40" id="services-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+          <span class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-semibold" id="services-badge">Xizmatlar</span>
+          <h2 class="text-3xl md:text-4xl font-display font-extrabold text-slate-100" id="services-title">Professional Xizmatlar</h2>
+          <p class="text-sm text-slate-400 leading-relaxed" id="services-sub">
+            Sizning ehtiyojlaringizga moslashtirilgan, fanga asoslangan individual va guruh terapiyasi seanslari
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="services-cards-grid">
+          
+          <!-- Individual Therapy Card -->
+          <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700/60 hover:-translate-y-1 transition-all duration-300 relative group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-teal-500"></div>
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-2">
+                <i data-lucide="heart" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-100 font-display" id="services-individual-title">Individual terapiya</h3>
+              <p class="text-xs md:text-sm text-slate-400 leading-relaxed" id="services-individual-desc">
+                Shaxsiy xavotirlar, depressiya, qo'rquvlar va hayotiy yo'qotishlar bilan ishlash uchun professional yakkama-yakka yordam.
+              </p>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-slate-800/60 space-y-4">
+              <div class="flex justify-between items-center text-xs text-slate-400 font-mono">
+                <span class="duration-label">Davomiyligi:</span>
+                <span class="text-slate-200">50-60 min</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-xs text-slate-500 uppercase font-mono price-label">Narxi:</span>
+                <span class="text-sm md:text-base font-bold font-mono text-emerald-400" id="price-individual">450,000 UZS</span>
+              </div>
+              <button onclick="handleSelectService('individual')" class="w-full py-2.5 bg-slate-800 hover:bg-emerald-600 text-slate-300 hover:text-white font-semibold text-xs rounded-xl transition-all duration-300 cursor-pointer select-service-btn">
+                Ushbuni tanlash
+              </button>
+            </div>
+          </div>
+
+          <!-- Couples Therapy Card -->
+          <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700/60 hover:-translate-y-1 transition-all duration-300 relative group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 mb-2">
+                <i data-lucide="message-square" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-100 font-display" id="services-couples-title">Oilaviy terapiya</h3>
+              <p class="text-xs md:text-sm text-slate-400 leading-relaxed" id="services-couples-desc">
+                Turmush o'rtoqlar o'rtasidagi tushunmovchiliklar, ajrim arafasidagi inqirozlar va ishonchni tiklash seanslari.
+              </p>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-slate-800/60 space-y-4">
+              <div class="flex justify-between items-center text-xs text-slate-400 font-mono">
+                <span class="duration-label">Davomiyligi:</span>
+                <span class="text-slate-200">80-90 min</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-xs text-slate-500 uppercase font-mono price-label">Narxi:</span>
+                <span class="text-sm md:text-base font-bold font-mono text-indigo-400" id="price-couples">650,000 UZS</span>
+              </div>
+              <button onclick="handleSelectService('couples')" class="w-full py-2.5 bg-slate-800 hover:bg-indigo-600 text-slate-300 hover:text-white font-semibold text-xs rounded-xl transition-all duration-300 cursor-pointer select-service-btn">
+                Ushbuni tanlash
+              </button>
+            </div>
+          </div>
+
+          <!-- Group Workshop Card -->
+          <div class="bg-slate-900/60 border border-slate-800/80 p-6 rounded-2xl flex flex-col justify-between hover:border-slate-700/60 hover:-translate-y-1 transition-all duration-300 relative group overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-cyan-500"></div>
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 mb-2">
+                <i data-lucide="users" class="w-6 h-6"></i>
+              </div>
+              <h3 class="text-lg font-bold text-slate-100 font-display" id="services-group-title">Guruh terapiyasi</h3>
+              <p class="text-xs md:text-sm text-slate-400 leading-relaxed" id="services-group-desc">
+                O'xshash hissiy muammolarga ega insonlar bilan birgalikda professional psixolog nazorati ostida qo'llab-quvvatlash guruhi.
+              </p>
+            </div>
+
+            <div class="pt-6 mt-6 border-t border-slate-800/60 space-y-4">
+              <div class="flex justify-between items-center text-xs text-slate-400 font-mono">
+                <span class="duration-label">Davomiyligi:</span>
+                <span class="text-slate-200">120 min</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-xs text-slate-500 uppercase font-mono price-label">Narxi:</span>
+                <span class="text-sm md:text-base font-bold font-mono text-blue-400" id="price-group">300,000 UZS</span>
+              </div>
+              <button onclick="handleSelectService('group')" class="w-full py-2.5 bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white font-semibold text-xs rounded-xl transition-all duration-300 cursor-pointer select-service-btn">
+                Ushbuni tanlash
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. DIAGNOSTIC MENTAL HEALTH TEST -->
+    <section class="py-20 bg-slate-950 border-t border-slate-900" id="test-section">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center space-y-3 mb-10">
+          <span class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-semibold" id="test-badge">Sog'liq testi</span>
+          <h2 class="text-3xl font-display font-extrabold text-slate-100" id="test-title">Ruhiy holat diagnostikasi (Express-test)</h2>
+        </div>
+
+        <div class="bg-slate-900/60 border border-slate-800/80 p-6 md:p-8 rounded-2xl relative" id="test-panel">
+          
+          <!-- State 1: Start Screen -->
+          <div id="test-start-view" class="text-center py-6 space-y-6">
+            <div class="w-16 h-16 bg-emerald-500/10 border border-emerald-500/20 rounded-full flex items-center justify-center mx-auto text-emerald-400">
+              <i data-lucide="clipboard-check" class="w-8 h-8"></i>
+            </div>
+            <p class="text-sm text-slate-300 max-w-lg mx-auto leading-relaxed" id="test-intro-text">
+              Ushbu ilmiy asoslangan test sizning hozirgi stress va xavotirlanish darajangizni aniqlashga yordam beradi. Javoblar mutlaqo maxfiy.
+            </p>
+            <button id="start-test-btn" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-500 text-white text-xs md:text-sm font-semibold rounded-xl transition-all cursor-pointer">
+              Testni boshlash
+            </button>
+          </div>
+
+          <!-- State 2: Active Question Screen -->
+          <div id="test-active-view" class="hidden space-y-6">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-3">
+              <span id="test-question-index" class="text-xs font-mono text-slate-400">Savol 1 / 5</span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            </div>
+            
+            <h3 id="test-question-text" class="text-base sm:text-lg font-semibold text-slate-100">
+              Savol matni yuklanmoqda...
+            </h3>
+
+            <div id="test-options-container" class="space-y-2.5">
+              <!-- Options buttons will be injected here -->
+            </div>
+
+            <div class="flex justify-end pt-4 border-t border-slate-800/60">
+              <button id="test-next-btn" class="w-full md:w-auto px-6 py-2.5 rounded-xl text-xs font-semibold bg-slate-800 text-slate-500 cursor-not-allowed transition-all" disabled>
+                Keyingi savol
+              </button>
+            </div>
+          </div>
+
+          <!-- State 3: Result Screen -->
+          <div id="test-result-view" class="hidden text-center py-8 space-y-6">
+            <div class="relative w-28 h-28 mx-auto flex items-center justify-center rounded-full border border-emerald-500/30 bg-emerald-500/10 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+              <span id="test-result-value" class="text-3xl font-bold font-mono text-emerald-400">75%</span>
+            </div>
+
+            <div class="space-y-2">
+              <h4 class="text-sm font-mono text-emerald-400 uppercase tracking-widest" id="test-result-title">Natija:</h4>
+              <p id="test-result-text" class="text-lg font-bold text-slate-200">O'rtacha xavotirlanish</p>
+              <p id="test-result-advice" class="text-xs md:text-sm text-slate-400 max-w-md mx-auto leading-relaxed">
+                Tavsiyalar yuklanmoqda...
+              </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-4">
+              <button id="restart-test-btn" class="w-full sm:w-auto px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-semibold cursor-pointer transition-all">
+                Qayta topshirish
+              </button>
+              <button id="test-result-cta" class="w-full sm:w-auto px-6 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-semibold cursor-pointer transition-all shadow-[0_4px_15px_rgba(16,185,129,0.2)]">
+                Shifokorga yozilish
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. MEDITATION LOUNGE -->
+    <section class="py-20 bg-slate-900/40 border-t border-slate-900" id="relaxation-section">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center space-y-3 mb-12">
+          <span class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-semibold flex items-center justify-center space-x-2" id="sounds-badge">
+            <i data-lucide="music" class="w-3.5 h-3.5"></i>
+            <span>Relax Lounge</span>
+          </span>
+          <h2 class="text-3xl font-display font-extrabold text-slate-100" id="sounds-title">Meditatsiya va dam olish Lounge</h2>
+          <p class="text-sm text-slate-400 max-w-xl mx-auto" id="sounds-sub">
+            Miyangizni tinchlantirish va konsentratsiyani tiklash uchun asab tizimini tinchlantiruvchi tovushlar va nafas olish mashqi
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Left: Rhythmic breathing guide -->
+          <div class="lg:col-span-5 flex flex-col items-center justify-center bg-slate-950/40 border border-slate-800 p-6 md:p-8 rounded-2xl min-h-[380px]">
+            <div class="text-center space-y-1.5 mb-8">
+              <h4 class="text-sm font-semibold text-slate-200" id="guided-breathe-title">Kognitiv nafas olish mashqi</h4>
+              <p class="text-xs text-slate-500" id="guided-breathe-sub">Nafas oling va asablaringizni bo'shashtiring</p>
+            </div>
+
+            <!-- Animated circle -->
+            <div id="breathe-visual-circle" class="w-44 h-44 sm:w-52 sm:h-52 rounded-full border border-emerald-500/10 bg-emerald-500/5 flex items-center justify-center transition-all duration-[4000ms] ease-in-out transform">
+              <p id="guided-breathe-text" class="text-sm font-display font-bold text-emerald-400 tracking-wide text-center">Nafas oling...</p>
+            </div>
+          </div>
+
+          <!-- Right: Audio Synthesizer Mix Panel -->
+          <div class="lg:col-span-7 bg-slate-950/60 border border-slate-800/80 p-6 md:p-8 rounded-2xl space-y-6">
+            
+            <div class="flex items-center justify-between border-b border-slate-800/60 pb-3">
+              <h4 class="text-sm font-semibold font-mono uppercase tracking-wider text-slate-300">Ambient Sound Synthesizer</h4>
+              <div class="flex items-center space-x-2">
+                <i data-lucide="volume-2" class="w-4 h-4 text-emerald-400"></i>
+                <input type="range" id="audio-master-volume" min="0" max="1" step="0.05" value="0.5" class="w-20 accent-emerald-500 cursor-pointer">
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              
+              <!-- Rain Element -->
+              <div class="p-3 bg-slate-950/40 border border-slate-900 rounded-xl flex items-center justify-between gap-4">
+                <div class="flex items-center space-x-3">
+                  <div class="p-2 bg-emerald-500/5 rounded-lg text-emerald-400">
+                    <i data-lucide="cloud-rain" class="w-4.5 h-4.5"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs font-semibold text-slate-200">Pouring Rain</p>
+                    <p class="text-[10px] text-slate-500">Synthesized pink noise drops</p>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <input type="range" id="rain-volume" min="0" max="1" step="0.05" value="0.4" class="w-20 accent-emerald-500 cursor-pointer">
+                  <button id="rain-toggle" data-active="false" class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-500 hover:text-slate-300 hover:border-slate-700 transition-all cursor-pointer">
+                    <span class="text-xs font-mono select-none">OFF</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Ocean Waves -->
+              <div class="p-3 bg-slate-950/40 border border-slate-900 rounded-xl flex items-center justify-between gap-4">
+                <div class="flex items-center space-x-3">
+                  <div class="p-2 bg-blue-500/5 rounded-lg text-blue-400">
+                    <i data-lucide="waves" class="w-4.5 h-4.5"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs font-semibold text-slate-200">Ocean Swell</p>
+                    <p class="text-[10px] text-slate-500">Low LFO modulated surf rumbles</p>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <input type="range" id="ocean-volume" min="0" max="1" step="0.05" value="0.4" class="w-20 accent-emerald-500 cursor-pointer">
+                  <button id="ocean-toggle" data-active="false" class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-500 hover:text-slate-300 hover:border-slate-700 transition-all cursor-pointer">
+                    <span class="text-xs font-mono select-none">OFF</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Forest Wind -->
+              <div class="p-3 bg-slate-950/40 border border-slate-900 rounded-xl flex items-center justify-between gap-4">
+                <div class="flex items-center space-x-3">
+                  <div class="p-2 bg-teal-500/5 rounded-lg text-teal-400">
+                    <i data-lucide="wind" class="w-4.5 h-4.5"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs font-semibold text-slate-200">Forest Wind</p>
+                    <p class="text-[10px] text-slate-500">Bandpass resonant howling</p>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <input type="range" id="wind-volume" min="0" max="1" step="0.05" value="0.3" class="w-20 accent-emerald-500 cursor-pointer">
+                  <button id="wind-toggle" data-active="false" class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-500 hover:text-slate-300 hover:border-slate-700 transition-all cursor-pointer">
+                    <span class="text-xs font-mono select-none">OFF</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Delta Space Waves -->
+              <div class="p-3 bg-slate-950/40 border border-slate-900 rounded-xl flex items-center justify-between gap-4">
+                <div class="flex items-center space-x-3">
+                  <div class="p-2 bg-indigo-500/5 rounded-lg text-indigo-400">
+                    <i data-lucide="compass" class="w-4.5 h-4.5"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs font-semibold text-slate-200">Cosmic Delta Drone</p>
+                    <p class="text-[10px] text-slate-500">108Hz-111Hz Binaural Delta Waves</p>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <input type="range" id="space-volume" min="0" max="1" step="0.05" value="0.3" class="w-20 accent-emerald-500 cursor-pointer">
+                  <button id="space-toggle" data-active="false" class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-slate-500 hover:text-slate-300 hover:border-slate-700 transition-all cursor-pointer">
+                    <span class="text-xs font-mono select-none">OFF</span>
+                  </button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7. AI PSYCHOLOGIST COMPANION CHAT -->
+    <section class="py-20 bg-slate-950 border-t border-slate-900" id="ai-chat-section">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center space-y-3 mb-10">
+          <span class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-semibold flex items-center justify-center space-x-2" id="chat-badge">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>AI Psixolog</span>
+          </span>
+          <h2 class="text-3xl font-display font-extrabold text-slate-100" id="chat-title">AI Psixolog-Maslahatchi</h2>
+          <p class="text-sm text-slate-400 max-w-xl mx-auto" id="chat-sub">Dr. Abdurahmonning sun'iy intellekt yordamchisi bilan 24/7 maxfiy suhbat qurib, dastlabki hissiy yordamni oling.</p>
+        </div>
+
+        <div class="bg-slate-900/60 backdrop-blur-md rounded-2xl border border-slate-800/80 overflow-hidden flex flex-col h-[520px]" id="chat-box-panel">
+          
+          <!-- Messages viewport -->
+          <div id="chat-messages" class="flex-1 overflow-y-auto p-4 md:p-6 space-y-4">
+            <!-- Initial greet bubble -->
+            <div class="flex items-start space-x-2.5">
+              <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center text-white shrink-0">
+                <span class="text-[10px] font-bold font-mono">DR</span>
+              </div>
+              <div class="space-y-1">
+                <p class="text-[10px] font-semibold text-slate-400 font-mono uppercase tracking-wider">DonoRuh AI</p>
+                <div class="inline-block bg-slate-900 border border-slate-800 rounded-2xl rounded-bl-none px-4 py-3 text-xs md:text-sm max-w-sm text-slate-200 leading-relaxed">
+                  Assalomu alaykum! Men Dr. Abdurahmonning sun'iy intellekt maslahatchisiman. Sizga qanday ruhiy ko'mak bera olaman? Hissiyotlaringiz haqida yozishingiz mumkin (mutlaqo maxfiy).
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick prompts suggestions -->
+          <div class="px-4 py-2 border-t border-slate-900 flex space-x-2 overflow-x-auto" id="chat-quick-prompts">
+            <!-- Loaded dynamically in javascript -->
+          </div>
+
+          <!-- Input bar form wrapper -->
+          <div class="p-3 bg-slate-950/80 border-t border-slate-900 flex items-center space-x-2.5">
+            <input
+              type="text"
+              id="chat-input"
+              placeholder="Tashvishlaringiz haqida yozing..."
+              class="flex-1 bg-slate-900 border border-slate-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 rounded-xl px-4 py-3 text-xs md:text-sm text-slate-100 outline-none transition-all"
+            />
+            <button id="chat-send-btn" class="p-3 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl transition-all cursor-pointer shrink-0">
+              <i data-lucide="send" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Clinical Disclaimer -->
+          <div class="px-4 py-2 bg-slate-950/40 border-t border-slate-900 text-center">
+            <p class="text-[10px] text-slate-500" id="chat-disclaimer">
+              Eslatma: AI maslahatchi shifokor qabulini to'liq almashtira olmaydi, ammo tezkor ruhiy ko'mak bera oladi.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 8. APPOINTMENT SCHEDULER -->
+    <section class="py-20 bg-slate-900/40 border-t border-slate-900" id="booking-section">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center space-y-3 mb-12">
+          <span class="text-xs font-mono uppercase tracking-widest text-emerald-400 font-semibold flex items-center justify-center space-x-2" id="book-badge">
+            <i data-lucide="calendar" class="w-3.5 h-3.5 text-emerald-400"></i>
+            <span>Appointment Scheduler</span>
+          </span>
+          <h2 class="text-3xl font-display font-extrabold text-slate-100" id="book-title">Qabulga shaxsiy yozilish</h2>
+          <p class="text-sm text-slate-400 max-w-xl mx-auto" id="book-sub">O'zingizga qulay sana va vaqtni belgilab, shifokor qabuliga rasmiy arizangizni qoldiring.</p>
+        </div>
+
+        <div class="bg-slate-900/60 backdrop-blur-md rounded-2xl border border-slate-800/80 p-6 md:p-8" id="appointment-scheduler-panel">
+          
+          <!-- Success State View -->
+          <div id="booking-success" class="hidden text-center py-10 space-y-6">
+            <div class="w-16 h-16 bg-emerald-500/10 border border-emerald-500/30 rounded-full flex items-center justify-center mx-auto text-emerald-400">
+              <i data-lucide="check-circle" class="w-10 h-10 animate-bounce"></i>
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-2xl font-display font-semibold text-slate-100" id="success-title">Sizning arizangiz muvaffaqiyatli qabul qilindi!</h3>
+              <p class="text-sm text-slate-400 max-w-md mx-auto leading-relaxed" id="success-msg">
+                Dr. Abdurahmon qabuliga yozildingiz. Tez orada assistentimiz siz bilan bog'lanib, uchrashuvni tasdiqlaydi.
+              </p>
+            </div>
+
+            <!-- Details ticket card -->
+            <div id="book-success-details" class="bg-slate-950/50 rounded-xl p-5 max-w-sm mx-auto border border-slate-800 text-left space-y-3">
+              <!-- Injected dynamically -->
+            </div>
+
+            <button id="book-another-btn" class="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-slate-100 rounded-xl text-sm transition-all border border-slate-700 font-medium cursor-pointer">
+              Yana band qilish
+            </button>
+          </div>
+
+          <!-- Active form grid view -->
+          <div id="booking-form-grid" class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Form Side -->
+            <form id="booking-form" class="lg:col-span-7 space-y-6">
+              <div class="space-y-4">
+                
+                <!-- Service Selector -->
+                <div>
+                  <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1.5 font-medium" id="book-form-service-lbl">
+                    Xizmat turi
+                  </label>
+                  <div class="relative">
+                    <select id="service-select" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 rounded-xl px-4 py-3 text-xs md:text-sm text-slate-100 appearance-none outline-none transition-all cursor-pointer">
+                      <option value="Individual terapiya">Individual terapiya</option>
+                      <option value="Oilaviy terapiya">Oilaviy terapiya</option>
+                      <option value="Guruh terapiyasi">Guruh terapiyasi</option>
+                    </select>
+                    <div class="absolute inset-y-0 right-4 flex items-center pointer-events-none text-slate-500 text-xs">▼</div>
+                  </div>
+                </div>
+
+                <!-- Date Scroller -->
+                <div>
+                  <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-2 font-medium" id="book-form-date-lbl">
+                    Sanani tanlang
+                  </label>
+                  <div id="booking-date-scroller" class="flex space-x-2 overflow-x-auto pb-2 snap-x">
+                    <!-- Injected dynamically -->
+                  </div>
+                </div>
+
+                <!-- Time Grid -->
+                <div>
+                  <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-2.5 font-medium" id="book-form-time-lbl">
+                    Vaqtni tanlang
+                  </label>
+                  <div id="booking-time-grid" class="grid grid-cols-4 gap-2">
+                    <!-- Injected dynamically -->
+                  </div>
+                </div>
+
+                <!-- Personal Information -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1 font-medium" id="book-form-name-lbl">
+                      To'liq ismingiz *
+                    </label>
+                    <div class="relative">
+                      <i data-lucide="user" class="absolute left-3.5 top-3 w-4 h-4 text-slate-500"></i>
+                      <input type="text" id="booking-name-input" required placeholder="Anvar Karimov" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 rounded-xl pl-10 pr-4 py-2.5 text-xs md:text-sm text-slate-100 outline-none transition-all">
+                    </div>
+                  </div>
+
+                  <div>
+                    <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1 font-medium" id="book-form-phone-lbl">
+                      Telefon raqamingiz *
+                    </label>
+                    <div class="relative">
+                      <i data-lucide="phone" class="absolute left-3.5 top-3 w-4 h-4 text-slate-500"></i>
+                      <input type="tel" id="booking-phone-input" required placeholder="+998 (90) 123-45-67" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 rounded-xl pl-10 pr-4 py-2.5 text-xs md:text-sm text-slate-100 outline-none transition-all">
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Email (Optional) -->
+                <div>
+                  <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1 font-medium" id="book-form-email-lbl">
+                    Email (ixtiyoriy)
+                  </label>
+                  <div class="relative">
+                    <i data-lucide="mail" class="absolute left-3.5 top-3 w-4 h-4 text-slate-500"></i>
+                    <input type="email" id="booking-email-input" placeholder="example@mail.com" class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 rounded-xl pl-10 pr-4 py-2.5 text-xs md:text-sm text-slate-100 outline-none transition-all">
+                  </div>
+                </div>
+
+                <!-- Notes / Context -->
+                <div>
+                  <label class="block text-xs font-mono uppercase tracking-wider text-slate-400 mb-1 font-medium" id="book-form-notes-lbl">
+                    Shifokorga qisqacha xabar
+                  </label>
+                  <div class="relative">
+                    <i data-lucide="file-text" class="absolute left-3.5 top-3.5 w-4 h-4 text-slate-500"></i>
+                    <textarea id="booking-notes-input" rows="2" placeholder="Sizni bezovta qilayotgan holatlar..." class="w-full bg-slate-950 border border-slate-800 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500/40 rounded-xl pl-10 pr-4 py-3 text-xs md:text-sm text-slate-100 outline-none transition-all resize-none"></textarea>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Sum indicator and action triggers -->
+              <div class="bg-slate-950/40 border border-slate-800 p-4 rounded-xl flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] font-mono text-slate-500 uppercase tracking-wider block price-label">Narxi:</span>
+                  <span id="booking-price-tag" class="text-lg font-bold font-mono text-emerald-400">450,000 UZS</span>
+                </div>
+                
+                <button type="submit" id="booking-submit-btn" class="px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-medium text-xs md:text-sm rounded-xl shadow-[0_4px_15px_rgba(16,185,129,0.2)] hover:shadow-[0_4px_20px_rgba(16,185,129,0.35)] transition-all cursor-pointer">
+                  Joyni band qilish
+                </button>
+              </div>
+            </form>
+
+            <!-- Bookings List Records Side -->
+            <div class="lg:col-span-5 space-y-4">
+              <h4 class="text-sm font-semibold font-mono uppercase tracking-wider text-slate-400 border-b border-slate-800 pb-2" id="booking-records-lbl">
+                Sizning band qilgan vaqtlaringiz
+              </h4>
+
+              <div id="bookings-records-list" class="space-y-3 max-h-[360px] overflow-y-auto pr-1">
+                <!-- Records list loads dynamically -->
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 9. GUARANTEES BLOCK -->
+    <section class="py-12 bg-slate-950 border-t border-slate-900/60 text-slate-400 text-xs">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        <div class="space-y-1.5 p-4 bg-slate-900/20 rounded-xl border border-slate-900">
+          <i data-lucide="shield" class="w-5 h-5 text-emerald-400 mx-auto"></i>
+          <h5 class="font-semibold text-slate-200">100% Maxfiylik Kafolati</h5>
+          <p class="text-[11px] leading-relaxed">Sessiyalar davomida aytilgan barcha so'zlar va shaxsiy ma'lumotlar sir saqlanadi.</p>
+        </div>
+        <div class="space-y-1.5 p-4 bg-slate-900/20 rounded-xl border border-slate-900">
+          <i data-lucide="lock" class="w-5 h-5 text-emerald-400 mx-auto"></i>
+          <h5 class="font-semibold text-slate-200">Xavfsiz To'lov va Aloqa</h5>
+          <p class="text-[11px] leading-relaxed">Sizning arizalaringiz va so'rovlaringiz shifrlangan holatda faqat shifokorga yetib boradi.</p>
+        </div>
+        <div class="space-y-1.5 p-4 bg-slate-900/20 rounded-xl border border-slate-900">
+          <i data-lucide="star" class="w-5 h-5 text-amber-500 fill-amber-500 mx-auto"></i>
+          <h5 class="font-semibold text-slate-200">Sifat Standartlari</h5>
+          <p class="text-[11px] leading-relaxed">Kognitiv-xulq-atvor va geştalt terapiya bo'yicha Yevropa assotsiatsiyasi standartlari asosida ishlaymiz.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-900 py-12 text-slate-500 text-xs mt-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          
+          <!-- Logo & pitch -->
+          <div class="space-y-4">
+            <a href="#" class="flex items-center space-x-2">
+              <div class="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white">
+                <i data-lucide="brain" class="w-4 h-4"></i>
+              </div>
+              <span class="text-base font-display font-bold text-slate-200" id="nav-logo-text-footer">DonoRuh</span>
+            </a>
+            <p class="text-[11px] leading-relaxed">
+              Ruhan kuchli, hissiy jihatdan barqaror hayot kechirishingiz uchun professional ko'mak. Biz sizga xavotir, qo'rquv va stressdan ozod bo'lishingizga yordam beramiz.
+            </p>
+          </div>
+
+          <!-- Quick Navigation Links -->
+          <div class="space-y-3 text-left">
+            <h4 class="font-bold text-slate-200 tracking-wider text-[11px] uppercase">Menyular</h4>
+            <ul class="space-y-1.5">
+              <li><a href="#about-section" class="hover:text-slate-300 text-[11px] transition-colors">Shifokor haqida</a></li>
+              <li><a href="#services-section" class="hover:text-slate-300 text-[11px] transition-colors">Xizmatlar</a></li>
+              <li><a href="#test-section" class="hover:text-slate-300 text-[11px] transition-colors">Sog'liq testi</a></li>
+              <li><a href="#relaxation-section" class="hover:text-slate-300 text-[11px] transition-colors">Keltirish Lounge</a></li>
+              <li><a href="#booking-section" class="hover:text-slate-300 text-[11px] transition-colors">Qabulga yozilish</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact details -->
+          <div class="space-y-3 text-left">
+            <h4 class="font-bold text-slate-200 tracking-wider text-[11px] uppercase">Aloqa</h4>
+            <ul class="space-y-2.5">
+              <li class="flex items-start space-x-2.5">
+                <i data-lucide="phone" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span class="text-[11px]">+998 (90) 912-34-56</span>
+              </li>
+              <li class="flex items-start space-x-2.5">
+                <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span class="text-[11px] leading-relaxed">Amir Temur shox ko'chasi, 45-uy, Toshkent, O'zbekiston</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Hours -->
+          <div class="space-y-3 text-left">
+            <h4 class="font-bold text-slate-200 tracking-wider text-[11px] uppercase">Ish Vaqtlari</h4>
+            <ul class="space-y-2.5">
+              <li class="flex items-center space-x-2.5">
+                <i data-lucide="clock" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                <span class="text-[11px]">Dushanba - Shanba: 09:00 - 20:00</span>
+              </li>
+              <li class="text-[10px] text-slate-600 leading-relaxed">
+                Yakshanba - dam olish kuni. Qabulga faqat oldindan yozilish orqali kiriladi.
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="border-t border-slate-900/80 pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px]">
+          <p>© <span id="year-placeholder">2026</span> DonoRuh. Barcha huquqlar himoyalangan.</p>
+          <script>document.getElementById('year-placeholder').innerText = new Date().getFullYear();</script>
+          <p class="mt-2 sm:mt-0 text-slate-600 font-mono">
+            Designed with Pride and Clinical Excellence
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lucide Vector Icons Library CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Application Logic -->
+    <script src="/script.js" defer></script>
+  </body>
+</html>
